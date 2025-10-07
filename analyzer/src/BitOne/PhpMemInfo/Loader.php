@@ -31,9 +31,7 @@ class Loader
             );
         }
 
-        $jsonEncoder = new JsonEncoder();
-
-        $allData = $jsonEncoder->decode(file_get_contents($filename), JsonEncoder::FORMAT);
+        $allData = json_decode(file_get_contents($filename), true, 512, JSON_THROW_ON_ERROR | JSON_INVALID_UTF8_SUBSTITUTE);
 
         return $allData['items'];
     }

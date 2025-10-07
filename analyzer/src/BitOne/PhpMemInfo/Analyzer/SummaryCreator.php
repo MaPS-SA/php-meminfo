@@ -42,7 +42,7 @@ class SummaryCreator
                 $summary[$type] = ['count' => 0, 'self_size' => 0];
             }
             $summary[$type]['count']++;
-            $summary[$type]['self_size']+= $item['size'];
+            $summary[$type]['self_size']+= (int)$item['size'];
         }
 
         uasort($summary, function ($a, $b) {
